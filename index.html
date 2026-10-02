@@ -16,7 +16,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E🐝%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Prata&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFF5F8;
@@ -37,7 +37,7 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--fawn-deep);overflow-x:hidden;overflow-x:clip}
 body{
-  font-family:'Monsieur La Doulaise',cursive;font-size:22px;color:var(--ink);
+  font-family:Prata,Georgia,serif;font-size:16px;color:var(--ink);
   min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-x:clip;
   touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adjust:100%;
   background-color:var(--fawn-deep);
@@ -81,13 +81,13 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 
 /* ── buttons ─────────────────────────────── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;padding:12px 22px;
-  border:0;border-radius:999px;background:var(--rose);color:#fff;font:400 30px/1.2 'Monsieur La Doulaise',cursive;letter-spacing:.2px;
+  border:0;border-radius:999px;background:var(--rose);color:#fff;font:400 19px/1.2 Prata,Georgia,serif;letter-spacing:.2px;
   box-shadow:0 6px 0 var(--rose-dark),0 12px 22px rgba(214,69,122,.28);cursor:pointer;transition:transform .12s ease}
 .btn:active{transform:translateY(5px);box-shadow:0 1px 0 var(--rose-dark),0 4px 10px rgba(214,69,122,.25)}
 .btn:disabled{cursor:default}
 .btn.secondary{background:#fff;color:var(--rose);border:2.5px solid var(--blush-300);box-shadow:0 5px 0 var(--blush-300),0 10px 18px rgba(214,69,122,.12)}
 .btn.secondary:active{box-shadow:0 1px 0 var(--blush-300)}
-.linkish{background:none;border:0;color:var(--rose);font:400 26px/1.25 'Monsieur La Doulaise',cursive;text-decoration:underline;text-decoration-style:wavy;text-underline-offset:4px;cursor:pointer;padding:8px 10px}
+.linkish{background:none;border:0;color:var(--rose);font:400 15px/1.3 Prata,Georgia,serif;text-decoration:underline;text-decoration-style:wavy;text-underline-offset:4px;cursor:pointer;padding:8px 10px}
 
 /* ── sound toggle ─────────────────────────────── */
 #sound{position:absolute;top:calc(var(--st) + 10px);right:10px;width:42px;height:42px;border-radius:50%;
@@ -95,9 +95,6 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
   box-shadow:0 3px 0 var(--blush-200);cursor:pointer;transition:transform .12s}
 #sound:active{transform:translateY(2px) scale(.95)}
 
-body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.sec-h,.res-title,.qnum,.pouch,.subtitle{-webkit-text-stroke:.4px currentColor}
-.btn,.toast{-webkit-text-stroke-color:#fff}
-.opt:disabled{-webkit-text-stroke-color:var(--ink)}
 
 /* ── deer, ragdoll cat, coffee ─────────────────────────────── */
 .deer-pop{position:fixed;bottom:0;left:0;width:74px;height:80px;pointer-events:none}
@@ -122,26 +119,26 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 /* ── title screen ─────────────────────────────── */
 #s-title{justify-content:center;align-items:center;text-align:center;gap:6px}
 #s-title .title,#s-name .name-card{margin-top:auto}
-.title{font-family:'Monsieur La Doulaise',cursive;font-weight:400;color:var(--rose);line-height:.95;margin-top:10px;
+.title{font-family:Prata,Georgia,serif;font-weight:400;color:var(--rose);line-height:.95;margin-top:10px;
   text-shadow:3px 0 #fff,-3px 0 #fff,0 3px #fff,0 -3px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 8px 0 var(--blush-200),0 14px 24px rgba(214,69,122,.2)}
-.title .t1{display:block;font-size:68px;line-height:1.1}
-.title .t2{display:flex;align-items:flex-end;justify-content:center;gap:14px;font-size:68px;line-height:1.1;margin-top:4px}
-.bigP{position:relative;display:inline-block;border:0;background:none;color:var(--rose);font:400 96px/1 'Monsieur La Doulaise',cursive;
+.title .t1{display:block;font-size:46px;line-height:1.1}
+.title .t2{display:flex;align-items:flex-end;justify-content:center;gap:10px;font-size:46px;line-height:1.1;margin-top:4px}
+.bigP{position:relative;display:inline-block;border:0;background:none;color:var(--rose);font:400 112px/.9 Prata,Georgia,serif;
   text-shadow:inherit;cursor:pointer;padding:0 4px;transition:transform .15s var(--spring)}
 .bigP.squish{animation:squish .35s ease}
-.bigP .p-bow{position:absolute;top:-10px;right:-26px;width:44px;transform:rotate(18deg);pointer-events:none}
+.bigP .p-bow{position:absolute;top:-12px;right:-22px;width:50px;transform:rotate(18deg);pointer-events:none}
 .bigP .p-bow svg,.bigP .p-drip svg{display:block;width:100%;height:auto}
-.bigP .p-drip{position:absolute;left:38%;top:82%;width:20px;pointer-events:none}
+.bigP .p-drip{position:absolute;left:24%;top:88%;width:20px;pointer-events:none}
 .p-drip .drip-body{transform-box:fill-box;transform-origin:50% 0;animation:dripStretch 3.2s ease-in-out infinite}
 .p-drip .drop{transform-box:fill-box;transform-origin:center;animation:dropFall 3.2s ease-in infinite}
 @keyframes dripStretch{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.18)}}
 @keyframes dropFall{0%,55%{transform:translateY(0) scale(.2);opacity:0}62%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(46px) scale(.9);opacity:0}}
-.qmark{font-size:68px;line-height:1.1}
-.subtitle{font:400 38px/1.25 'Monsieur La Doulaise',cursive;color:var(--ink);margin-top:34px}
-.subline{font-size:31px;color:var(--ink-soft);margin-top:2px}
+.qmark{font-size:60px;line-height:1}
+.subtitle{font:400 20px/1.3 Prata,Georgia,serif;color:var(--ink);margin-top:34px}
+.subline{font-size:16px;color:var(--ink-soft);margin-top:2px}
 .subline em{font-family:Caveat,cursive;font-weight:600;font-style:normal;font-size:24px;color:var(--rose)}
 .title-cta{width:100%;max-width:300px;margin-top:30px}
-.footer{margin-top:auto;padding-top:14px;font-size:27px;color:var(--ink-soft);text-align:center}
+.footer{margin-top:auto;padding-top:14px;font-size:14px;color:var(--ink-soft);text-align:center}
 .deco{position:absolute;pointer-events:none;font-size:20px;opacity:.9}
 .deco svg{width:100%;height:auto;display:block}
 .float{animation:floaty 5s ease-in-out infinite}
@@ -152,8 +149,8 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 /* ── name screen ─────────────────────────────── */
 #s-name{justify-content:center}
 .name-card{background:#fff;border-radius:24px;padding:26px 20px 22px;box-shadow:var(--shadow);border:2.5px solid var(--blush-100);position:relative;text-align:center}
-.name-card h2{font:400 38px/1.2 'Monsieur La Doulaise',cursive;margin-bottom:20px}
-.name-input{width:100%;min-height:56px;font:400 30px/1.25 'Monsieur La Doulaise',cursive;color:var(--ink);text-align:center;
+.name-card h2{font:400 23px/1.25 Prata,Georgia,serif;margin-bottom:20px}
+.name-input{width:100%;min-height:56px;font:400 18px/1.3 Prata,Georgia,serif;color:var(--ink);text-align:center;
   background:var(--bg);border:2.5px solid var(--blush-200);border-radius:999px;padding:12px 18px;-webkit-appearance:none;appearance:none}
 .name-input::placeholder{color:var(--blush-300);font-weight:700}
 .name-input:focus-visible,.name-input:focus{outline:3px solid var(--blush-300);outline-offset:2px;border-color:var(--rose)}
@@ -166,8 +163,8 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 /* ── quiz screen ─────────────────────────────── */
 #s-quiz{padding-bottom:calc(var(--sb) + 16px)}
 .qtop{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px}
-.qnum{font:400 28px/1.25 'Monsieur La Doulaise',cursive;background:var(--blush-100);border:2px solid var(--blush-200);color:var(--rose-dark);padding:6px 14px;border-radius:999px;white-space:nowrap}
-.pouch{font:400 24px/1.25 'Monsieur La Doulaise',cursive;background:#fff;border:2px solid var(--blush-200);padding:6px 12px;border-radius:999px;box-shadow:0 3px 0 var(--blush-200);white-space:nowrap}
+.qnum{font:400 16px/1.2 Prata,Georgia,serif;background:var(--blush-100);border:2px solid var(--blush-200);color:var(--rose-dark);padding:6px 14px;border-radius:999px;white-space:nowrap}
+.pouch{font:400 15px/1.2 Prata,Georgia,serif;background:#fff;border:2px solid var(--blush-200);padding:6px 12px;border-radius:999px;box-shadow:0 3px 0 var(--blush-200);white-space:nowrap}
 .pouch.bump{animation:bump .55s var(--spring)}
 @keyframes bump{0%{transform:scale(1)}35%{transform:scale(1.35) rotate(-6deg)}65%{transform:scale(.92) rotate(4deg)}100%{transform:scale(1)}}
 .comb{display:flex;justify-content:center;gap:3px;margin:10px 0 2px}
@@ -192,16 +189,16 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .qcard.leaving{position:absolute;top:0;left:0;right:0;animation:cardOut .4s ease-in both;pointer-events:none}
 @keyframes cardIn{0%{opacity:0;transform:translateX(110%) rotate(5deg)}100%{opacity:1;transform:none}}
 @keyframes cardOut{0%{opacity:1;transform:none}100%{opacity:0;transform:translateX(-115%) rotate(-6deg)}}
-.q-text{font:400 33px/1.15 'Monsieur La Doulaise',cursive;color:var(--ink);margin:2px 4px 16px;position:relative}
+.q-text{font:400 21px/1.3 Prata,Georgia,serif;color:var(--ink);margin:2px 4px 16px;position:relative}
 .opts{display:flex;flex-direction:column;gap:12px;position:relative}
 .opt{position:relative;display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:10px 12px 10px 18px;
   border-radius:26px;background:#fff;border:2.5px solid var(--blush-200);color:var(--ink);
   box-shadow:0 4px 0 var(--blush-200),0 8px 16px rgba(214,69,122,.07);
-  font:400 26px/1.1 'Monsieur La Doulaise',cursive;text-align:left;cursor:pointer;transition:transform .12s ease,opacity .3s}
+  font:400 15.5px/1.3 Prata,Georgia,serif;text-align:left;cursor:pointer;transition:transform .12s ease,opacity .3s}
 .opt:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--blush-200)}
 .opt:disabled{cursor:default;color:var(--ink);opacity:1;-webkit-text-fill-color:var(--ink)}
 .opt-t{flex:1}
-.opt-mark{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:400 24px/1.25 'Monsieur La Doulaise',cursive;color:#fff;-webkit-text-fill-color:#fff;transform:scale(0);transition:transform .4s var(--spring)}
+.opt-mark{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:400 15px/1 Prata,Georgia,serif;color:#fff;-webkit-text-fill-color:#fff;transform:scale(0);transition:transform .4s var(--spring)}
 .opt.squish{animation:squish .3s ease}
 @keyframes squish{0%{transform:scale(1)}40%{transform:scale(.95,.88)}75%{transform:scale(1.03)}100%{transform:scale(1)}}
 .opt.dim{opacity:.5}
@@ -210,7 +207,7 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .opt.wrong{background:var(--wrong-bg);border-color:var(--wrong);box-shadow:0 4px 0 var(--wrong);animation:wiggle .5s ease}
 .opt.wrong .opt-mark{background:var(--wrong);transform:scale(1)}
 .opt.reveal{background:var(--honey-light);border-color:var(--honey-dark);box-shadow:0 4px 0 var(--honey-dark),0 0 0 6px rgba(255,210,77,.45),0 0 26px rgba(255,210,77,.8)}
-.opt-tag{position:absolute;top:-13px;right:16px;background:var(--honey);color:var(--ink);-webkit-text-fill-color:var(--ink);font:400 21px/1.2 'Monsieur La Doulaise',cursive;padding:5px 10px;border-radius:999px;border:2px solid #fff;box-shadow:0 3px 8px rgba(233,168,0,.35);animation:popIn .45s var(--spring) both;white-space:nowrap}
+.opt-tag{position:absolute;top:-13px;right:16px;background:var(--honey);color:var(--ink);-webkit-text-fill-color:var(--ink);font:400 11.5px/1 Prata,Georgia,serif;padding:5px 10px;border-radius:999px;border:2px solid #fff;box-shadow:0 3px 8px rgba(233,168,0,.35);animation:popIn .45s var(--spring) both;white-space:nowrap}
 @keyframes wiggle{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px) rotate(-1.5deg)}40%{transform:translateX(7px) rotate(1.5deg)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
 
 /* night card (Q3) */
@@ -261,11 +258,11 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
   transform:translateY(112%);visibility:hidden;transition:transform .55s var(--spring),visibility 0s .55s}
 #sheet.on{transform:none;visibility:visible;transition:transform .55s var(--spring),visibility 0s}
 .grab{width:44px;height:5px;border-radius:5px;background:var(--blush-200);margin:0 auto 14px}
-.sh-label{display:inline-block;font:400 24px/1.25 'Monsieur La Doulaise',cursive;color:var(--honey-dark);background:var(--honey-light);padding:5px 12px;border-radius:999px;margin-bottom:8px}
-.sh-title{font:400 40px/1.2 'Monsieur La Doulaise',cursive;color:var(--ink);margin:4px 0 6px}
+.sh-label{display:inline-block;font:400 13px/1.2 Prata,Georgia,serif;color:var(--honey-dark);background:var(--honey-light);padding:5px 12px;border-radius:999px;margin-bottom:8px}
+.sh-title{font:400 25px/1.2 Prata,Georgia,serif;color:var(--ink);margin:4px 0 6px}
 .sh-title.wrongh{color:var(--rose)}
 .sh-sub{font:600 25px/1.15 Caveat,cursive;color:var(--ink-soft);margin-bottom:12px}
-.pill{display:inline-block;font:400 25px/1.25 'Monsieur La Doulaise',cursive;background:var(--blush-100);color:var(--rose-dark);border:2px solid var(--blush-200);padding:6px 14px;border-radius:999px;margin:2px 0 12px;animation:popIn .5s var(--spring) .3s both}
+.pill{display:inline-block;font:400 14px/1.3 Prata,Georgia,serif;background:var(--blush-100);color:var(--rose-dark);border:2px solid var(--blush-200);padding:6px 14px;border-radius:999px;margin:2px 0 12px;animation:popIn .5s var(--spring) .3s both}
 .pill.honeyp{background:var(--honey-light);border-color:var(--honey);color:var(--ink)}
 #sheet .next{margin-top:8px}
 .earned{display:flex;align-items:center;gap:12px;text-align:left;background:var(--bg);border:2px dashed var(--blush-300);border-radius:20px;padding:10px 14px;margin:2px 0 12px}
@@ -284,7 +281,7 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .bat-body{width:120px;height:46px;border:3px solid var(--ink);border-radius:12px;padding:4px;background:#fff;overflow:hidden}
 .bat-fill{width:100%;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--honey),#9BE3A6);transform-origin:0 50%;transform:scaleX(0)}
 .bat-cap{width:7px;height:18px;background:var(--ink);border-radius:0 4px 4px 0}
-.bat-txt{font:400 25px/1.25 'Monsieur La Doulaise',cursive;color:var(--ink-soft)}
+.bat-txt{font:400 14px/1.3 Prata,Georgia,serif;color:var(--ink-soft)}
 
 /* ── fx ─────────────────────────────── */
 .hero-bee{position:fixed;left:0;top:0;width:76px;height:64px;will-change:transform}
@@ -320,7 +317,7 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 
 /* ── toasts ─────────────────────────────── */
 #toasts{position:absolute;top:calc(var(--st) + 62px);left:16px;right:16px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
-.toast{background:var(--ink);color:#fff;font:400 25px/1.3 'Monsieur La Doulaise',cursive;padding:11px 18px;border-radius:18px;box-shadow:0 10px 26px rgba(74,44,58,.3);text-align:center;max-width:100%;animation:toastIn .45s var(--spring) both}
+.toast{background:var(--ink);color:#fff;font:400 14.5px/1.35 Prata,Georgia,serif;padding:11px 18px;border-radius:18px;box-shadow:0 10px 26px rgba(74,44,58,.3);text-align:center;max-width:100%;animation:toastIn .45s var(--spring) both}
 .toast.bye{animation:fadeOut .35s ease forwards}
 @keyframes toastIn{from{opacity:0;transform:translateY(-16px) scale(.9)}to{opacity:1;transform:none}}
 
@@ -330,7 +327,7 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .nt-bunny{flex:none;width:58px;height:70px;margin-bottom:-24px}
 .nt-bunny svg{width:100%;height:auto}
 .nice-try p{font:600 23px/1.1 Caveat,cursive}
-.res-title{font:400 46px/1.2 'Monsieur La Doulaise',cursive;text-align:center;margin:14px 0 6px;word-break:break-word}
+.res-title{font:400 29px/1.2 Prata,Georgia,serif;text-align:center;margin:14px 0 6px;word-break:break-word}
 .res-title .rn{color:var(--rose)}
 .jar-row{display:flex;justify-content:center;align-items:flex-end;gap:4px;margin:34px 0 22px}
 .jar-wrap{position:relative;width:176px;height:202px}
@@ -344,11 +341,11 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .crown-poodle{width:110px;margin-bottom:-6px;animation:popIn .6s var(--spring) .9s both}
 .crown-poodle svg{width:100%;height:auto;display:block}
 .tier{text-align:center;margin:8px 0 6px}
-.tier h2{font:400 38px/1.2 'Monsieur La Doulaise',cursive}
+.tier h2{font:400 23px/1.25 Prata,Georgia,serif}
 .tier p{font:600 24px/1.15 Caveat,cursive;color:var(--ink-soft);margin-top:2px}
 .recap{display:flex;justify-content:center;gap:4px;margin:12px auto 22px;max-width:360px}
 .recap .hex{max-width:32px}
-.sec-h{font:400 36px/1.25 'Monsieur La Doulaise',cursive;text-align:center;margin-bottom:12px}
+.sec-h{font:400 21px/1.3 Prata,Georgia,serif;text-align:center;margin-bottom:12px}
 .pun-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .pun{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px 10px;background:#fff;border:2.5px solid var(--blush-200);border-radius:22px;box-shadow:0 4px 0 var(--blush-200);cursor:pointer;text-align:center;transition:transform .12s;animation:popIn .5s var(--spring) both}
 .pun:active:not(.revealed){transform:translateY(3px);box-shadow:0 1px 0 var(--blush-200)}
@@ -370,20 +367,20 @@ body,.btn,.opt,.q-text,.pun-body,.name-input,.toast,.pill,.sh-title,.tier h2,.se
 .pun.revealed .pun-text{display:block;animation:popIn .5s var(--spring) both;transform-origin:0 0}
 .pun-num{font:600 20px Caveat,cursive;color:var(--rose)}
 .pun-emoji{display:block;font-size:34px;line-height:1.1;margin:2px 0 4px}
-.pun-body{font:400 26px/1.35 'Monsieur La Doulaise',cursive;color:var(--ink)}
+.pun-body{font:400 15px/1.5 Prata,Georgia,serif;color:var(--ink)}
 .unseal-all{display:block;margin:10px auto 0}
-.perfect-msg{text-align:center;font:400 34px/1.25 'Monsieur La Doulaise',cursive;background:var(--honey-light);border:2.5px solid var(--honey);border-radius:22px;padding:16px;box-shadow:0 4px 0 var(--honey)}
+.perfect-msg{text-align:center;font:400 20px/1.3 Prata,Georgia,serif;background:var(--honey-light);border:2.5px solid var(--honey);border-radius:22px;padding:16px;box-shadow:0 4px 0 var(--honey)}
 .share-row{display:flex;flex-direction:column;gap:14px;margin-top:26px}
 .lock-note{font:600 21px Caveat,cursive;color:var(--ink-soft);text-align:center;margin-top:14px}
 
 @media (min-width:420px){ :root{--pl:20px;--pr:60px} }
 @media (max-height:700px){
   .qstage{margin-top:40px}
-  .q-text{font-size:30px;margin-bottom:10px}
-  .opt{font-size:24px;min-height:50px;padding-top:7px;padding-bottom:7px}
+  .q-text{font-size:19px;margin-bottom:12px}
+  .opt{font-size:15px;min-height:50px;padding-top:7px;padding-bottom:7px}
   .opts{gap:10px}
   .qcard{padding:18px 14px 14px}
-  .title .t1,.title .t2{font-size:60px}.bigP{font-size:86px}
+  .title .t1,.title .t2{font-size:42px}.bigP{font-size:100px}
 }
 @media (prefers-reduced-motion: reduce){
   .deer-pop .d-ear,.cat .c-tail,.cat .c-eyes,.coffee .steam,.wing,.b-eyes,.ear-r,.ear-l,.float,.twinkle,.drip-body,.drop,.orbit,.orbit .ob,.hex.is-cur,.ld-ring,.ld-drop,#poodle.trot .poodle-art{animation:none!important}
@@ -762,7 +759,7 @@ function jarSVG(level, label, forImage) {
 <g transform="translate(100 66)"><path d="M-3 2 L-13 22 L-7 20 L-5 26 L1 4Z M3 2 L13 22 L7 20 L5 26 L-1 4Z" fill="#D6457A" stroke="#B8336A" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M0 0 C-10 -14 -28 -12 -25 2 C-22 12 -8 8 0 0Z" fill="#D6457A" stroke="#B8336A" stroke-width="2"/><path d="M0 0 C10 -14 28 -12 25 2 C22 12 8 8 0 0Z" fill="#D6457A" stroke="#B8336A" stroke-width="2"/><circle r="5.5" fill="#B8336A"/></g>
 <rect x="56" y="122" width="88" height="56" rx="16" fill="#fff" stroke="#FFA8C2" stroke-width="3"/>
-${label ? `<text x="100" y="161" text-anchor="middle" font-family="Monsieur La Doulaise, cursive" font-weight="400" font-size="40" fill="#4A2C3A">${esc(label)}</text>` : ''}
+${label ? `<text x="100" y="161" text-anchor="middle" font-family="Prata, Georgia, serif" font-weight="400" font-size="28" fill="#4A2C3A">${esc(label)}</text>` : ''}
 </svg>`;
 }
 
@@ -1599,13 +1596,13 @@ function hexPath(x, cx, cy, r) {
   }
   x.closePath();
 }
-const MLD = '"Monsieur La Doulaise", cursive';
+const MLD = 'Prata, Georgia, serif';
 async function makeCard() {
   try {
     if (document.fonts) {
       await Promise.all([
-        document.fonts.load('400 80px "Monsieur La Doulaise"'), document.fonts.load('600 60px Caveat'),
-        document.fonts.load('400 40px "Monsieur La Doulaise"')
+        document.fonts.load('400 80px Prata'), document.fonts.load('600 60px Caveat'),
+        document.fonts.load('400 40px Prata')
       ]);
       await document.fonts.ready;
     }
@@ -1635,24 +1632,24 @@ async function makeCard() {
   rr(x, 70, 110, 940, 1700, 64); x.lineWidth = 6; x.strokeStyle = '#FFE4EC'; x.stroke();
   x.textAlign = 'center'; x.textBaseline = 'middle';
   // header
-  fit(x, "What's up with P?", 400, 112, MLD, 820);
+  fit(x, "What's up with P?", 400, 80, MLD, 760);
   x.fillStyle = '#D6457A'; x.fillText("What's up with P?", 540, 215);
   if (imBow) { x.save(); x.translate(935, 150); x.rotate(.3); x.drawImage(imBow, -64, -46, 128, 92); x.restore(); }
   x.font = '40px sans-serif'; x.fillText('✨', 175, 200); x.fillText('✨', 930, 330);
   // name
-  fit(x, S.name, 400, 170, MLD, 820, 60);
+  fit(x, S.name, 400, 116, MLD, 820, 50);
   x.fillStyle = '#4A2C3A'; x.fillText(S.name, 540, 405);
   x.font = '600 62px Caveat, cursive'; x.fillStyle = '#8A6274'; x.fillText("'s results 🎀", 540, 488);
   // jar
   const jx = 390, jy = 515, jw = 300, jh = 345;
   if (imJar) x.drawImage(imJar, jx, jy, jw, jh);
-  x.font = `400 62px ${MLD}`; x.fillStyle = '#4A2C3A';
+  x.font = `400 42px ${MLD}`; x.fillStyle = '#4A2C3A';
   x.fillText(`${sc}/${N}`, jx + 150, jy + 150 * 1.5);
   if (imBee1) { x.save(); x.translate(290, 640); x.scale(-1, 1); x.rotate(-.15); x.drawImage(imBee1, -72, -60, 144, 120); x.restore(); }
   if (perfect && imPoodle) x.drawImage(imPoodle, 700, 650, 230, 225);
   else if (imBee2) { x.save(); x.translate(800, 760); x.rotate(.12); x.drawImage(imBee2, -62, -52, 124, 104); x.restore(); }
   // tier
-  fit(x, tier.title, 400, 80, MLD, 880, 36);
+  fit(x, tier.title, 400, 54, MLD, 860, 30);
   x.fillStyle = '#4A2C3A'; x.fillText(tier.title, 540, 935);
   fit(x, tier.sub, 600, 50, 'Caveat, cursive', 860, 28);
   x.fillStyle = '#8A6274'; x.fillText(tier.sub, 540, 1000);
@@ -1666,18 +1663,18 @@ async function makeCard() {
   }
   // punishments
   if (perfect) {
-    fit(x, 'zero punishments. bow down 👑', 400, 80, MLD, 860);
+    fit(x, 'zero punishments. bow down 👑', 400, 54, MLD, 820);
     x.fillStyle = '#D6457A'; x.fillText('zero punishments. bow down 👑', 540, 1260);
     x.font = '600 50px Caveat, cursive'; x.fillStyle = '#8A6274'; x.fillText('P is shook.', 540, 1345);
     x.font = '90px sans-serif'; x.fillText('🐝 🍯 🐝', 540, 1480);
   } else {
-    x.font = `400 74px ${MLD}`; x.fillStyle = '#D6457A'; x.fillText('punishments I owe P 😈', 540, 1200);
+    x.font = `400 50px ${MLD}`; x.fillStyle = '#D6457A'; x.fillText('punishments I owe P 😈', 540, 1200);
     const top = 1258, bottom = 1680, left = 150, maxW = 760;
     const items = S.penalties.map(p => PENALTIES[p]);
-    let fs = 54, layout = [], lh = 0, gap = 0;
-    for (; fs >= 22; fs -= 2) {
+    let fs = 38, layout = [], lh = 0, gap = 0;
+    for (; fs >= 18; fs -= 2) {
       x.font = `400 ${fs}px ${MLD}`;
-      lh = fs * 1.22; gap = fs * .4;
+      lh = fs * 1.35; gap = fs * .5;
       const numW = x.measureText('10. ').width;
       let h = 0;
       layout = items.map((t, k) => { const ls = wrapLines(x, t, maxW - numW); h += ls.length * lh + gap; return { ls, numW, k }; });
@@ -1688,14 +1685,14 @@ async function makeCard() {
     layout.forEach(({ ls, numW, k }) => {
       x.fillStyle = '#D6457A'; x.font = `400 ${fs}px ${MLD}`;
       x.fillText(`${k + 1}.`, left, yy);
-      x.fillStyle = '#4A2C3A'; x.strokeStyle = '#4A2C3A'; x.lineWidth = Math.max(1, fs * .035);
-      ls.forEach(l => { x.fillText(l, left + numW, yy); x.strokeText(l, left + numW, yy); yy += lh; });
+      x.fillStyle = '#4A2C3A';
+      ls.forEach(l => { x.fillText(l, left + numW, yy); yy += lh; });
       yy += gap;
     });
     x.textAlign = 'center'; x.textBaseline = 'middle';
   }
   // footer + bunny peeking
-  x.font = `400 54px ${MLD}`; x.fillStyle = '#8A6274'; x.fillText('made with 🍯 for P', 560, 1752);
+  x.font = `400 36px ${MLD}`; x.fillStyle = '#8A6274'; x.fillText('made with 🍯 for P', 560, 1752);
   if (imBunny) x.drawImage(imBunny, 852, 1640, 210, 255);
   if (imCat) x.drawImage(imCat, 40, 1650, 190, 187);
   if (imCoffee) x.drawImage(imCoffee, 215, 1730, 84, 107);
