@@ -218,7 +218,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 .night-sky .star{position:absolute;color:#fff;font-size:12px;text-shadow:0 0 6px #fff}
 
 /* ── bunny ─────────────────────────────── */
-#bunny{position:absolute;right:0;top:65%;width:80px;height:97px;padding:0;border:0;background:none;cursor:pointer;
+#bunny{position:absolute;right:0;top:65%;width:80px;height:97px;padding:0;border:0;background:none;pointer-events:none;
   transform:translateX(31px);transition:transform .5s var(--spring);border-radius:40px}
 #bunny.out{transform:translateX(4px)}
 #bunny .bunny-inner{width:100%;height:100%}
@@ -453,7 +453,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 </main>
 
 <div class="layer z-bunny">
-  <button type="button" id="bunny" aria-label="the bunny. tap to chat"><div class="bunny-inner"></div></button>
+  <div id="bunny" aria-hidden="true"><div class="bunny-inner"></div></div>
   <div id="bunny-bubble" role="status" aria-live="polite"></div>
 </div>
 <div id="scrim" aria-hidden="true"></div>
@@ -1100,14 +1100,7 @@ function bunnyCover() {
   bunnyEl.classList.add('cover');
   setTimeout(() => bunnyEl.classList.remove('cover'), 1500);
 }
-// tapping is optional — it just makes him say something now
-bunnyEl.addEventListener('click', () => {
-  if (!S || !S.name) {
-    bunnySay(currentScreen === 'name' ? "hey you, how you doing? …who are you though 👀" : "psst. press start 🐰");
-    return;
-  }
-  bunnySay(randomBunnyLine());
-});
+
 
 // ══════════════════════════════════════════════════════════════
 // poodle
