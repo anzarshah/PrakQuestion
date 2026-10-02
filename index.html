@@ -221,7 +221,6 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 #bunny{position:absolute;right:0;top:65%;width:80px;height:97px;padding:0;border:0;background:none;cursor:pointer;
   transform:translateX(31px);transition:transform .5s var(--spring);border-radius:40px}
 #bunny.out{transform:translateX(4px)}
-#bunny.gone{transform:translateX(120%);transition:transform .45s ease-in}
 #bunny .bunny-inner{width:100%;height:100%}
 #bunny svg{width:100%;height:100%;display:block;overflow:visible}
 #bunny.hop .bunny-inner{animation:hop .7s ease}
@@ -638,13 +637,28 @@ const WRONG_STREAK_LINES = {
   5: "the bunny is filing a report 🐰📝"
 };
 
-// ── BUNNY (cycles on each tap; {name} = the player's name) ──
+// ── BUNNY (says one at random every few seconds; first one is always line 0; {name} = the player's name) ──
 const BUNNY_LINES = [
   "Hey {name}, how you doing?",
   "psst… she can't see your answers. (she can.) 👀",
   "I'm not allowed to give hints. I'm just a bunny 🥕",
-  "stop poking me 😤",
-  "ok I'm telling P. 📞" // → then he hides for 4s
+  "you're doing amazing sweetie ✨",
+  "trust your gut, {name}. your gut knows things 🥕",
+  "deep breaths. it's just a vibe check 🧘",
+  "wrong answers build character 💅",
+  "I believe in you. mostly. 🐰",
+  "hydrate. then answer 💧",
+  "main character energy only, {name} 🎀",
+  "even I got a 6/10 and I live here 🐰",
+  "no pressure but P is watching 👀",
+  "the deer believes in you too 🦌",
+  "the cat is judging. ignore the cat 🐈",
+  "slay responsibly 💖",
+  "this is a safe space. except for the punishments 😇",
+  "you're so close to greatness (or punishment) 😈",
+  "carrot break? no? ok. focus 🥕",
+  "honestly? proud of you already 🥹",
+  "whatever happens, you're still cute {name} 💗"
 ];
 
 // ── SECRET NAME GREETINGS (lowercase keys — add P's friends here) ──
@@ -1052,20 +1066,29 @@ document.addEventListener('visibilitychange', () => {
 // bunny
 // ══════════════════════════════════════════════════════════════
 $('.bunny-inner', bunnyEl).innerHTML = SVG_BUNNY;
-let bunnyIdx = 0, bunnyHidden = false, bubbleT = null;
-function bunnySay(text, ms = 2500) {
-  if (bunnyHidden) return;
+let bubbleT = null, lastLine = -1, saidTitle = false, saidName = false;
+function bunnySay(text, ms = 2800) {
   bunnyEl.classList.add('out');
   bubble.textContent = text;
   bubble.classList.add('on');
   clearTimeout(bubbleT);
   bubbleT = setTimeout(() => { bubble.classList.remove('on'); bunnyEl.classList.remove('out'); }, ms);
 }
-function bunnyHide(ms) {
-  bunnyHidden = true;
-  clearTimeout(bubbleT);
-  bubble.classList.remove('on'); bunnyEl.classList.remove('out'); bunnyEl.classList.add('gone');
-  setTimeout(() => { bunnyEl.classList.remove('gone'); bunnyHidden = false; }, ms);
+function randomBunnyLine() {
+  let k = 0;
+  if (lastLine !== -1) {
+    do { k = Math.floor(Math.random() * BUNNY_LINES.length); } while (k === lastLine && BUNNY_LINES.length > 1);
+  }
+  lastLine = k;
+  return BUNNY_LINES[k].split('{name}').join(S.name);
+}
+// the bunny talks on his own every so often — no tapping needed
+function bunnyChatter() {
+  setTimeout(bunnyChatter, 10000 + Math.random() * 6000);
+  if (document.hidden || sheetOpen || bubble.classList.contains('on')) return;
+  if (currentScreen === 'quiz' && S) bunnySay(randomBunnyLine());
+  else if (currentScreen === 'title' && !saidTitle) { saidTitle = true; bunnySay("psst. press start 🐰"); }
+  else if (currentScreen === 'name' && !saidName) { saidName = true; bunnySay("hey you, how you doing? …who are you though 👀"); }
 }
 function bunnyHop() {
   restartAnim(bunnyEl, 'hop');
@@ -1077,20 +1100,13 @@ function bunnyCover() {
   bunnyEl.classList.add('cover');
   setTimeout(() => bunnyEl.classList.remove('cover'), 1500);
 }
+// tapping is optional — it just makes him say something now
 bunnyEl.addEventListener('click', () => {
-  if (bunnyHidden) return;
   if (!S || !S.name) {
     bunnySay(currentScreen === 'name' ? "hey you, how you doing? …who are you though 👀" : "psst. press start 🐰");
     return;
   }
-  const last = bunnyIdx === BUNNY_LINES.length - 1;
-  const line = BUNNY_LINES[bunnyIdx].split('{name}').join(S.name);
-  bunnyIdx = (bunnyIdx + 1) % BUNNY_LINES.length;
-  bunnySay(line);
-  if (last) {
-    bunnyHidden = true; // ignore taps while he storms off
-    setTimeout(() => { bunnyHidden = false; bunnyHide(4000); }, 2500);
-  }
+  bunnySay(randomBunnyLine());
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1827,6 +1843,7 @@ function boot() {
   if (resetToast) setTimeout(() => toast('fresh start 🍯'), 300);
   if (!RM) { setTimeout(spawnAmb, 600); setTimeout(spawnAmb, 2600); setTimeout(ambLoop, 6000); }
   setTimeout(deerLoop, 1800);
+  setTimeout(bunnyChatter, 4500);
 }
 boot();
 })();
