@@ -61,6 +61,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 .layer{position:fixed;top:0;bottom:0;left:50%;width:var(--col);transform:translateX(-50%);pointer-events:none}
 .layer > *{pointer-events:auto}
 .z-bunny{z-index:20}
+.z-player{z-index:25}
 #scrim{position:fixed;inset:0;z-index:30;background:rgba(74,44,58,.16);opacity:0;pointer-events:none;transition:opacity .35s}
 #scrim.on{opacity:1;pointer-events:auto}
 .z-sheet{z-index:40}
@@ -72,7 +73,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 
 /* ── screens ─────────────────────────────── */
 .screen{display:none;flex-direction:column;position:relative;min-height:100vh;min-height:100dvh;
-  padding:calc(var(--st) + 14px) var(--pr) calc(var(--sb) + 26px) var(--pl)}
+  padding:calc(var(--st) + 14px) var(--pr) calc(var(--sb) + 80px) var(--pl)}
 .screen.active{display:flex;animation:screenIn .5s ease both}
 @keyframes screenIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -119,24 +120,10 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 /* ── title screen ─────────────────────────────── */
 #s-title{justify-content:center;align-items:center;text-align:center;gap:6px}
 #s-title .title,#s-name .name-card{margin-top:auto}
-.title{font-family:Prata,Georgia,serif;font-weight:400;color:var(--rose);line-height:.95;margin-top:10px;
-  text-shadow:3px 0 #fff,-3px 0 #fff,0 3px #fff,0 -3px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 8px 0 var(--blush-200),0 14px 24px rgba(214,69,122,.2)}
-.title .t1{display:block;font-size:46px;line-height:1.1}
-.title .t2{display:flex;align-items:flex-end;justify-content:center;gap:10px;font-size:46px;line-height:1.1;margin-top:4px}
-.bigP{position:relative;display:inline-block;border:0;background:none;color:var(--rose);font:400 112px/.9 Prata,Georgia,serif;
-  text-shadow:inherit;cursor:pointer;padding:0 4px;transition:transform .15s var(--spring)}
+.title{font:400 40px/1.2 Prata,Georgia,serif;color:var(--rose);max-width:320px;
+  text-shadow:2px 0 #fff,-2px 0 #fff,0 2px #fff,0 -2px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 6px 0 var(--blush-200),0 12px 22px rgba(214,69,122,.2)}
+.bigP{display:inline-block;border:0;background:none;padding:0 2px;font:inherit;color:inherit;text-shadow:inherit;cursor:pointer}
 .bigP.squish{animation:squish .35s ease}
-.bigP .p-bow{position:absolute;top:-12px;right:-22px;width:50px;transform:rotate(18deg);pointer-events:none}
-.bigP .p-bow svg,.bigP .p-drip svg{display:block;width:100%;height:auto}
-.bigP .p-drip{position:absolute;left:24%;top:88%;width:20px;pointer-events:none}
-.p-drip .drip-body{transform-box:fill-box;transform-origin:50% 0;animation:dripStretch 3.2s ease-in-out infinite}
-.p-drip .drop{transform-box:fill-box;transform-origin:center;animation:dropFall 3.2s ease-in infinite}
-@keyframes dripStretch{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.18)}}
-@keyframes dropFall{0%,55%{transform:translateY(0) scale(.2);opacity:0}62%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(46px) scale(.9);opacity:0}}
-.qmark{font-size:60px;line-height:1}
-.subtitle{font:400 20px/1.3 Prata,Georgia,serif;color:var(--ink);margin-top:34px}
-.subline{font-size:16px;color:var(--ink-soft);margin-top:2px}
-.subline em{font-family:Caveat,cursive;font-weight:600;font-style:normal;font-size:24px;color:var(--rose)}
 .title-cta{width:100%;max-width:300px;margin-top:30px}
 .footer{margin-top:auto;padding-top:14px;font-size:14px;color:var(--ink-soft);text-align:center}
 .deco{position:absolute;pointer-events:none;font-size:20px;opacity:.9}
@@ -161,7 +148,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 .corner-heart{position:absolute;top:12px;right:14px;width:20px;opacity:.85;pointer-events:none}
 
 /* ── quiz screen ─────────────────────────────── */
-#s-quiz{padding-bottom:calc(var(--sb) + 16px)}
+#s-quiz{padding-bottom:calc(var(--sb) + 70px)}
 .qtop{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px}
 .qnum{font:400 16px/1.2 Prata,Georgia,serif;background:var(--blush-100);border:2px solid var(--blush-200);color:var(--rose-dark);padding:6px 14px;border-radius:999px;white-space:nowrap}
 .pouch{font:400 15px/1.2 Prata,Georgia,serif;background:#fff;border:2px solid var(--blush-200);padding:6px 12px;border-radius:999px;box-shadow:0 3px 0 var(--blush-200);white-space:nowrap}
@@ -314,6 +301,30 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 .ld-txt{font:600 30px Caveat,cursive;color:var(--rose)}
 @keyframes orbit{to{transform:rotate(360deg)}}
 
+/* ── music player ─────────────────────────────── */
+#player{position:absolute;left:50%;bottom:calc(var(--sb) + 10px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;
+  min-width:220px;padding:6px 14px 6px 6px;background:#fff;border:2.5px solid var(--blush-200);border-radius:999px;cursor:pointer;
+  box-shadow:0 4px 0 var(--blush-200),0 10px 22px rgba(140,98,60,.18);transition:transform .12s}
+#player:active{transform:translateX(-50%) translateY(2px)}
+#player[hidden]{display:none}
+.disc{width:34px;height:34px;flex:none;animation:spin 3s linear infinite;animation-play-state:paused}
+.disc svg{width:100%;height:100%;display:block}
+.np{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0;text-align:left}
+.np-txt{font:400 13px/1.15 Prata,Georgia,serif;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{display:block;height:5px;border-radius:5px;background:var(--blush-100);overflow:hidden}
+.prog-fill{display:block;height:100%;background:linear-gradient(90deg,var(--blush-300),var(--rose));transform-origin:0 50%;transform:scaleX(0)}
+.eq{display:flex;align-items:flex-end;gap:3px;height:20px;flex:none}
+.eq i{display:block;width:4px;height:100%;border-radius:3px;background:var(--rose);transform-origin:50% 100%;transform:scaleY(.25);
+  animation:eq .9s ease-in-out infinite alternate;animation-play-state:paused}
+.eq i:nth-child(2){animation-duration:.7s;animation-delay:-.3s;background:var(--blush-300)}
+.eq i:nth-child(3){animation-duration:1.1s;animation-delay:-.6s;background:var(--honey-dark)}
+.eq i:nth-child(4){animation-duration:.8s;animation-delay:-.2s;background:var(--blush-300)}
+.eq i:nth-child(5){animation-duration:1s;animation-delay:-.5s}
+#player.playing .disc,#player.playing .eq i{animation-play-state:running}
+@keyframes eq{0%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:fixed;margin:-10px 0 0 -6px;font-size:17px;color:var(--rose);text-shadow:0 0 6px #fff}
+
 /* ── toasts ─────────────────────────────── */
 #toasts{position:absolute;top:calc(var(--st) + 62px);left:16px;right:16px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
 .toast{background:var(--ink);color:#fff;font:400 14.5px/1.35 Prata,Georgia,serif;padding:11px 18px;border-radius:18px;box-shadow:0 10px 26px rgba(74,44,58,.3);text-align:center;max-width:100%;animation:toastIn .45s var(--spring) both}
@@ -321,7 +332,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 @keyframes toastIn{from{opacity:0;transform:translateY(-16px) scale(.9)}to{opacity:1;transform:none}}
 
 /* ── results ─────────────────────────────── */
-#s-results{padding-bottom:calc(var(--sb) + 30px)}
+#s-results{padding-bottom:calc(var(--sb) + 84px)}
 .nice-try{display:flex;align-items:center;gap:10px;background:#fff;border:2.5px solid var(--blush-200);border-radius:22px;padding:10px 14px;margin:6px 0 16px;box-shadow:var(--shadow);overflow:hidden}
 .nt-bunny{flex:none;width:58px;height:70px;margin-bottom:-24px}
 .nt-bunny svg{width:100%;height:auto}
@@ -379,10 +390,10 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
   .opt{font-size:15px;min-height:50px;padding-top:7px;padding-bottom:7px}
   .opts{gap:10px}
   .qcard{padding:18px 14px 14px}
-  .title .t1,.title .t2{font-size:42px}.bigP{font-size:100px}
+  .title{font-size:36px}
 }
 @media (prefers-reduced-motion: reduce){
-  .deer-pop .d-ear,.cat .c-tail,.cat .c-eyes,.coffee .steam,.wing,.b-eyes,.ear-r,.ear-l,.float,.twinkle,.drip-body,.drop,.orbit,.orbit .ob,.hex.is-cur,.ld-ring,.ld-drop,#poodle.trot .poodle-art{animation:none!important}
+  .disc,.eq i,.deer-pop .d-ear,.cat .c-tail,.cat .c-eyes,.coffee .steam,.wing,.b-eyes,.ear-r,.ear-l,.float,.twinkle,.orbit,.orbit .ob,.hex.is-cur,.ld-ring,.ld-drop,#poodle.trot .poodle-art{animation:none!important}
   .qcard.entering{animation:fadeIn .3s ease both!important}
   .qcard.leaving{animation:fadeOut .25s ease both!important}
   .opt.wrong,.name-input.nope,.bigP.squish,.opt.squish,.pouch.bump,#bunny.hop .bunny-inner{animation:none!important}
@@ -409,15 +420,10 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
     <span class="deco twinkle" style="top:60%;left:14%;animation-delay:-1s">✨</span>
     <span class="deco float" style="top:8%;right:22%;width:22px;animation-delay:-3s" data-svg="heart"></span>
     <span class="deco twinkle" style="bottom:20%;right:8%;animation-delay:-.5s">✨</span>
-    <h1 class="title" id="title-h">
-      <span class="t1">What's up</span>
-      <span class="t2">with <button type="button" class="bigP" id="bigP" aria-label="P">P<span class="p-bow" aria-hidden="true"></span><span class="p-drip" aria-hidden="true"></span></button><span class="qmark">?</span></span>
-    </h1>
-    <p class="subtitle">a 10-question vibe check 🎀</p>
-    <p class="subline">how well do you <em>actually</em> know me?</p>
+    <h1 class="title" id="title-h">a 10-question vibe check <span style="white-space:nowrap">with <button type="button" class="bigP" id="bigP" aria-label="P">P</button> 🎀</span></h1>
     <button type="button" class="btn title-cta" id="startBtn">start the quest 🐝</button>
     <div class="cozy" aria-hidden="true"><span class="cat" data-art="cat"></span><span class="coffee" data-art="coffee"></span></div>
-    <p class="footer">made with 🍯 for P</p>
+    <p class="footer">made with 🍯</p>
   </section>
 
   <!-- NAME -->
@@ -432,7 +438,7 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
       <button type="submit" class="btn">let's go 🐰</button>
     </form>
     <div class="cozy" aria-hidden="true"><span class="coffee" data-art="coffee"></span></div>
-    <p class="footer">made with 🍯 for P</p>
+    <p class="footer">made with 🍯</p>
   </section>
 
   <!-- QUIZ -->
@@ -462,6 +468,13 @@ button{font:inherit;color:inherit;touch-action:manipulation;-webkit-user-select:
 </div>
 <div class="layer z-poodle" aria-hidden="true">
   <div id="poodle"><div class="poodle-bubble"></div><div class="poodle-art"></div></div>
+</div>
+<div class="layer z-player">
+  <button type="button" id="player" aria-label="background music">
+    <span class="disc" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#4A2C3A"/><circle cx="20" cy="20" r="15" fill="none" stroke="#6E4D5E" stroke-width="1"/><circle cx="20" cy="20" r="11.5" fill="none" stroke="#6E4D5E" stroke-width="1"/><circle cx="20" cy="20" r="7.5" fill="#FFA8C2"/><path d="M20 23.2 C16.6 21 17.4 17.6 20 18.9 C22.6 17.6 23.4 21 20 23.2Z" fill="#fff"/><path d="M7 13 A14.5 14.5 0 0 1 14 6.5" stroke="#fff" stroke-opacity=".4" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span>
+    <span class="np"><span class="np-txt">now playing ♪</span><span class="prog"><span class="prog-fill"></span></span></span>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+  </button>
 </div>
 <div class="layer z-ui">
   <button type="button" id="sound" aria-pressed="false" aria-label="sound off. tap to turn on">🔇</button>
@@ -855,7 +868,6 @@ const SVG_DEER = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 130" 
 <ellipse cx="37" cy="76" rx="6" ry="3.5" fill="#FFA8C2"/><ellipse cx="83" cy="76" rx="6" ry="3.5" fill="#FFA8C2"/>
 </svg>`;
 
-const SVG_DRIP = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70"><g class="drip-body"><path d="M2 0 H28 Q25 7 21 11 Q19 14 19 26 Q19 37 15 37 Q11 37 11 26 Q11 16 8 11 Q5 7 2 0Z" fill="#FFD24D" stroke="#E9A800" stroke-width="2"/><path d="M14 14 Q13 22 14 28" stroke="#FFE9A6" stroke-width="2.5" stroke-linecap="round" fill="none"/></g><circle class="drop" cx="15" cy="44" r="4.5" fill="#FFD24D" stroke="#E9A800" stroke-width="1.5"/></svg>`;
 
 const SVG_DROP = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 78"><path d="M30 4 C30 4 6 34 6 50 A24 24 0 0 0 54 50 C54 34 30 4 30 4Z" fill="#FFD24D" stroke="#E9A800" stroke-width="3.5"/><ellipse cx="20" cy="50" rx="5" ry="9" fill="#FFE9A6"/><circle cx="24" cy="55" r="2.6" fill="#4A2C3A"/><circle cx="37" cy="55" r="2.6" fill="#4A2C3A"/><path d="M27 61 Q30.5 64 34 61" stroke="#4A2C3A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="61" rx="3.6" ry="2.2" fill="#FFA8C2"/><ellipse cx="42" cy="61" rx="3.6" ry="2.2" fill="#FFA8C2"/></svg>`;
 
@@ -903,7 +915,7 @@ function streak(correct) {
 // ══════════════════════════════════════════════════════════════
 // sound (Web Audio, synthesized, muted by default)
 // ══════════════════════════════════════════════════════════════
-let soundOn = store.get(SOUND_KEY) === true;
+let soundOn = store.get(SOUND_KEY) !== false;
 const sfx = (() => {
   let ctx = null;
   function get() {
@@ -1516,7 +1528,7 @@ function showResults(already) {
     </div>
     <p class="lock-note">one shot only 🔒 your answers are locked in</p>
     <div class="cozy" aria-hidden="true"><span class="cat">${SVG_CAT}</span><span class="coffee">${SVG_COFFEE}</span></div>
-    <p class="footer">made with 🍯 for P</p>`;
+    <p class="footer">made with 🍯</p>`;
 
   // honey fills up
   const honey = $('#results .honey');
@@ -1701,7 +1713,7 @@ async function makeCard() {
     x.textAlign = 'center'; x.textBaseline = 'middle';
   }
   // footer + bunny peeking
-  x.font = `400 36px ${MLD}`; x.fillStyle = '#8A6274'; x.fillText('made with 🍯 for P', 560, 1752);
+  x.font = `400 36px ${MLD}`; x.fillStyle = '#8A6274'; x.fillText('made with 🍯', 560, 1752);
   if (imBunny) x.drawImage(imBunny, 852, 1640, 210, 255);
   if (imCat) x.drawImage(imCat, 40, 1650, 190, 187);
   if (imCoffee) x.drawImage(imCoffee, 215, 1730, 84, 107);
@@ -1752,18 +1764,88 @@ function paintSound() {
   soundBtn.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
   soundBtn.setAttribute('aria-label', soundOn ? 'sound on. tap to mute' : 'sound off. tap to turn on');
 }
-soundBtn.addEventListener('click', () => {
+
+// ── background music: loops forever at a constant 25% ──
+// (bgmusic.m4a is pre-levelled so the quiet intro and the louder middle play at the same loudness)
+const MUSIC_VOL = 0.25;
+const music = new Audio('bgmusic.m4a');
+music.loop = true;
+music.preload = 'auto';
+const playerEl = $('#player'), progFill = $('.prog-fill', playerEl), npTxt = $('.np-txt', playerEl);
+let mctx = null, musicWired = false, pausedByHide = false;
+try { music.volume = MUSIC_VOL; } catch (e) { /* read-only on some devices */ }
+// on a hosted link the 25% goes through a Web Audio gain node, because iPhones ignore audio.volume
+function wireMusic() {
+  if (musicWired) return;
+  musicWired = true;
+  if (location.protocol === 'file:') return; // opened as a local file: Web Audio can't read it, plain 25% volume is used
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    mctx = new AC();
+    const src = mctx.createMediaElementSource(music);
+    const vol = mctx.createGain();
+    vol.gain.value = MUSIC_VOL;
+    src.connect(vol); vol.connect(mctx.destination);
+    music.volume = 1; // the 25% now lives in the gain node
+  } catch (e) { mctx = null; try { music.volume = MUSIC_VOL; } catch (_) { /* noop */ } }
+}
+function startMusic(fromGesture) {
+  if (!soundOn || document.hidden) return;
+  if (fromGesture) wireMusic();
+  if (mctx && mctx.state === 'suspended') mctx.resume();
+  const p = music.play();
+  if (p && p.catch) p.catch(() => paintPlayer());
+}
+function paintPlayer() {
+  const playing = soundOn && !music.paused;
+  playerEl.classList.toggle('playing', playing);
+  npTxt.textContent = !soundOn ? 'music off 🔇' : (playing ? 'now playing ♪' : 'tap anywhere for music 🎶');
+  playerEl.setAttribute('aria-label', soundOn ? 'background music on. tap to mute' : 'background music off. tap to turn on');
+}
+music.addEventListener('timeupdate', () => {
+  if (music.duration) progFill.style.transform = `scaleX(${music.currentTime / music.duration})`;
+});
+music.addEventListener('play', paintPlayer);
+music.addEventListener('pause', paintPlayer);
+music.addEventListener('error', () => { playerEl.hidden = true; });
+// browsers only allow sound after the first tap/key, so the music starts on the first interaction
+['pointerup', 'touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (soundOn) startMusic(true); }, true));
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { if (!music.paused) { pausedByHide = true; music.pause(); } }
+  else if (pausedByHide) { pausedByHide = false; startMusic(false); }
+});
+// little notes float up from the record while it plays
+setInterval(() => {
+  if (RM || document.hidden || sheetOpen || !playerEl.classList.contains('playing')) return;
+  const c = centerOf($('.disc', playerEl));
+  const n = document.createElement('span');
+  n.className = 'note';
+  n.textContent = ['♪', '♫', '♬'][Math.floor(Math.random() * 3)];
+  n.style.left = c.x + 'px'; n.style.top = c.y + 'px';
+  fx.appendChild(n);
+  const dx = (Math.random() - .5) * 50;
+  n.animate([
+    { transform: 'translate(0,0) scale(.6)', opacity: 0 },
+    { transform: `translate(${dx * .4}px,-24px) scale(1)`, opacity: 1, offset: .25 },
+    { transform: `translate(${dx}px,-80px) scale(.9) rotate(${dx / 2}deg)`, opacity: 0 }
+  ], { duration: 1800, easing: 'ease-out' }).onfinish = () => n.remove();
+}, 1500);
+
+function toggleSound() {
   soundOn = !soundOn;
   store.set(SOUND_KEY, soundOn);
   paintSound();
-  if (soundOn) { sfx.unlock(); sfx.pop(); }
-});
+  if (soundOn) { sfx.unlock(); sfx.pop(); startMusic(true); }
+  else music.pause();
+  paintPlayer();
+}
+soundBtn.addEventListener('click', toggleSound);
+playerEl.addEventListener('click', toggleSound);
 
 // ══════════════════════════════════════════════════════════════
 // title + name screens
 // ══════════════════════════════════════════════════════════════
-$('.p-bow').innerHTML = SVG_BOW;
-$('.p-drip').innerHTML = SVG_DRIP;
 $$('.deco[data-svg="heart"]').forEach(d => { d.innerHTML = SVG_HEART; });
 $$('#s-name .corner-bow').forEach(d => { d.innerHTML = SVG_BOW; });
 $$('[data-art="cat"]').forEach(d => { d.innerHTML = SVG_CAT; });
@@ -1806,6 +1888,8 @@ $('#nameForm').addEventListener('submit', e => {
 // ══════════════════════════════════════════════════════════════
 function boot() {
   paintSound();
+  paintPlayer();
+  if (soundOn) startMusic(false);
   let resetToast = false;
   try {
     const params = new URLSearchParams(location.search);
